@@ -24,6 +24,7 @@ code {
 
 .overlay {
   position: absolute;
+  display: flex;
   top: 0;
   left: 0;
   right: 0;
@@ -62,21 +63,4 @@ code {
 .controls input[type="range"] {
   width: 80%;
   margin: 0 10px;
-}
-
-.video-player video::-webkit-media-controls-fullscreen-button {
-  display: none;
-}
-
-.video-player video::-webkit-media-controls-play-button {
-  display: none;
-}
-
-/* For Firefox */
-.video-player video:-moz-full-screen {
-  max-height: 100% !important;
-}
-
-.video-player video:-webkit-full-screen {
-  max-height: 100% !important;
 }
