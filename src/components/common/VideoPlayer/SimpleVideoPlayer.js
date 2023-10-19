@@ -11,10 +11,24 @@ const SimpleVideoPlayer = () => {
       const duration = videoRef.current.duration;
       const calculatedProgress = (currentTime / duration) * 100;
       setProgress(calculatedProgress);
-  };
+    }
+
+    const toggleFullScreen = async () => {
+      const container = document.getElementById('video-player');
+      const fullscreenApi = container.requestFullscreen
+        || container.webkitRequestFullScreen
+        || container.mozRequestFullScreen
+        || container.msRequestFullscreen;
+      if (!document.fullscreenElement) {
+        fullscreenApi.call(container);
+      }
+      else {
+        document.exitFullscreen();
+      }
+    };
 
   return (
-    <div className="video-player">
+    <div className="video-player" id="video-player">
       <video
         ref={videoRef}
         controls={false}
@@ -33,6 +47,7 @@ const SimpleVideoPlayer = () => {
         videoRef={videoRef} 
         progress={progress}
         setProgress={setProgress}
+        toggleFullScreen={toggleFullScreen}
         />
     </div>
   );

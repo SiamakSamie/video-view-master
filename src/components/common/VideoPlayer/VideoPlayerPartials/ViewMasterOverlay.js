@@ -15,17 +15,6 @@ const ViewMasterOverlay = (props) => {
         props.setProgress(e.target.value);
     };
 
-    const handleFullScreen = () => {
-      console.log("FullScreen video");
-        if (props.videoRef.current.requestFullscreen) {
-            props.videoRef.current.requestFullscreen();
-        } else if (props.videoRef.current.mozRequestFullScreen) {
-            props.videoRef.current.mozRequestFullScreen();
-        } else if (props.videoRef.current.webkitRequestFullscreen) {
-            props.videoRef.current.webkitRequestFullscreen();
-        }
-    };
-
     const handleClicks = (e) => {
         if (props.progress === 0) {
             setTriggerPlayPause(true);
@@ -67,7 +56,8 @@ const ViewMasterOverlay = (props) => {
         setTriggerForward(true);
       }
       else {
-        handleFullScreen();
+        console.log("FullScreen video");
+        props.toggleFullScreen();
       }
     }
 
@@ -95,30 +85,30 @@ const ViewMasterOverlay = (props) => {
     >
         <div className="overlay-icons">
             <div className="overlay-icon">
-            <ReverseIcon
-                videoRef={props.videoRef}
-                showIcon={showOverlay}
-                triggerReverse={triggerReverse}
-                setTriggerReverse={setTriggerReverse}
-            />
+                <ReverseIcon
+                    videoRef={props.videoRef}
+                    showIcon={showOverlay}
+                    triggerReverse={triggerReverse}
+                    setTriggerReverse={setTriggerReverse}
+                />
             </div>
             
             <div className="overlay-icon">
-            <PlayPauseIcon 
-                videoRef={props.videoRef}
-                showIcon={showOverlay}
-                triggerPlayPause={triggerPlayPause}
-                setTriggerPlayPause={setTriggerPlayPause}
-            />
+                <PlayPauseIcon 
+                    videoRef={props.videoRef}
+                    showIcon={showOverlay}
+                    triggerPlayPause={triggerPlayPause}
+                    setTriggerPlayPause={setTriggerPlayPause}
+                />
             </div>
             
             <div className="overlay-icon">
-            <ForwardIcon 
-                videoRef={props.videoRef}
-                showIcon={showOverlay}
-                triggerForward={triggerForward}
-                setTriggerForward={setTriggerForward}
-            />
+                <ForwardIcon 
+                    videoRef={props.videoRef}
+                    showIcon={showOverlay}
+                    triggerForward={triggerForward}
+                    setTriggerForward={setTriggerForward}
+                />
             </div>
         </div>
         
