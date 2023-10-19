@@ -1,5 +1,5 @@
 import '../../src/styles/App.css';
-import SimpleVideoPlayer from './common/SimpleVideoPlayer';
+import SimpleVideoPlayer from './common/VideoPlayer/SimpleVideoPlayer';
 
 function App() {
   return (
