@@ -8,6 +8,7 @@ const ViewMasterOverlay = (props) => {
     const [triggerPlayPause, setTriggerPlayPause] = useState(false);
     const [triggerReverse, setTriggerReverse] = useState(false);
     const [triggerForward, setTriggerForward] = useState(false);
+    const [videos] = useState([[],[],[],[]]);
 
     const handleSeek = (e) => {
         const seekTime = (e.target.value / 100) * props.videoRef.current.duration;
@@ -83,45 +84,68 @@ const ViewMasterOverlay = (props) => {
     <div className="overlay active"  
         onClick={handleClicks}
     >
-        <div className="overlay-icons">
-            <div className="overlay-icon">
-                <ReverseIcon
-                    videoRef={props.videoRef}
-                    showIcon={showOverlay}
-                    triggerReverse={triggerReverse}
-                    setTriggerReverse={setTriggerReverse}
-                />
-            </div>
-            
-            <div className="overlay-icon">
-                <PlayPauseIcon 
-                    videoRef={props.videoRef}
-                    showIcon={showOverlay}
-                    triggerPlayPause={triggerPlayPause}
-                    setTriggerPlayPause={setTriggerPlayPause}
-                />
-            </div>
-            
-            <div className="overlay-icon">
-                <ForwardIcon 
-                    videoRef={props.videoRef}
-                    showIcon={showOverlay}
-                    triggerForward={triggerForward}
-                    setTriggerForward={setTriggerForward}
-                />
-            </div>
+       
+      <div className='overlay-header'></div>
+
+      <div id="main" className='overlay-main'>
+        <div className='overlay-left'>
+        </div>
+
+        <div className='overlay-middle'>
+          <div className="overlay-icons">
+              <div className="overlay-icon">
+                  <ReverseIcon
+                      videoRef={props.videoRef}
+                      showIcon={showOverlay}
+                      triggerReverse={triggerReverse}
+                      setTriggerReverse={setTriggerReverse}
+                  />
+              </div>
+              
+              <div className="overlay-icon">
+                  <PlayPauseIcon 
+                      videoRef={props.videoRef}
+                      showIcon={showOverlay}
+                      triggerPlayPause={triggerPlayPause}
+                      setTriggerPlayPause={setTriggerPlayPause}
+                  />
+              </div>
+              
+              <div className="overlay-icon">
+                  <ForwardIcon 
+                      videoRef={props.videoRef}
+                      showIcon={showOverlay}
+                      triggerForward={triggerForward}
+                      setTriggerForward={setTriggerForward}
+                  />
+              </div>
+          </div>
+
         </div>
         
+        <div className='overlay-right'>
+          {showOverlay &&
+            <div className="overlay-screens">
+              {videos.map(() => {
+                return <div className='overlay-screen'></div>
+              })}
+            </div>
+          }
+        </div>
+      </div>
+
+      <div className='overlay-footer'>
         {showOverlay &&
-            <input
-                type="range"
-                min={0}
-                max={100}
-                step={0.1}
-                value={props.progress}
-                onChange={handleSeek}
-            />
-        }
+              <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  step={0.1}
+                  value={props.progress}
+                  onChange={handleSeek}
+              />
+          }
+      </div>
     </div>
   );
 };

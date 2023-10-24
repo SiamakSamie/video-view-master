@@ -23,7 +23,7 @@ Main use case: Online video player to synchronize playing 2 or more videos of si
 
 ### Requirements
 
--   Create simple video playing component.
+-   ~~Create simple video playing component.~~
 -   Provide enhanced video player functionality, catered to gestures. (Pause/Play, Reverse/Forward, Playback-Scrubbing)
 -   Allow player to take in various sources of videos (single->multiple sources).
 -   Update player to enable video source swaping on click/tap.
@@ -32,6 +32,6 @@ Main use case: Online video player to synchronize playing 2 or more videos of si
 
 ### Considerations
 
--   Issues with VVM overlay when browser goes into video fullscreen mode -> https://dev.to/aws/html-video-with-fullscreen-chat-overlay-4jfl .
+-   ~~Issues with VVM overlay when browser goes into video fullscreen mode -> https://dev.to/aws/html-video-with-fullscreen-chat-overlay-4jfl .~~
 
 ### Todos
