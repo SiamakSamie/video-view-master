@@ -1,4 +1,7 @@
 import React, { useEffect } from 'react';
+import SvgIcon from './SvgIcon';
+import PlayIcon from './../../../../assets/images/play-svgrepo-com.svg';
+import PauseIcon from './../../../../assets/images/pause-svgrepo-com.svg';
 
 const PlayPauseIcon = (props) => {
 
@@ -23,7 +26,17 @@ const PlayPauseIcon = (props) => {
     <>
       {(props.showIcon || props.triggerPlayPause) &&
         <div onClick={(e) => handlePlayPause(props.videoRef, e)}>
-            {"|> Play/Pause ||"}
+          { props.videoRef.current.paused ?
+            <SvgIcon 
+              svgPath={PlayIcon} 
+              svgName="Play" 
+            />
+          :
+          <SvgIcon 
+            svgPath={PauseIcon} 
+            svgName="Pause" 
+          />
+          }
         </div>
       }
     </>
