@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import SvgIcon from './SvgIcon';
+import RewindBackIcon from './../../../../assets/images/rewind-back-svgrepo-com.svg';
 
 const ReverseIcon = (props) => {
 
@@ -18,7 +20,10 @@ const ReverseIcon = (props) => {
     <>
       {(props.showIcon || props.triggerReverse) &&
         <div onClick={(e) => handleReverse(props.videoRef, e)}>
-            {"<< Rewind"}
+          <SvgIcon 
+            svgPath={RewindBackIcon} 
+            svgName="Rewind" 
+          />
         </div>
       }
     </>

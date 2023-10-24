@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import SvgIcon from './SvgIcon';
+import FastForwardIcon from './../../../../assets/images/rewind-forward-svgrepo-com.svg';
 
 const ForwardIcon = (props) => {
 
@@ -18,7 +20,10 @@ const ForwardIcon = (props) => {
     <>
       {(props.showIcon || props.triggerForward) &&
         <div onClick={(e) => handleForward(props.videoRef, e)}>
-            {"Fast Forward >>"}
+            <SvgIcon 
+              svgPath={FastForwardIcon} 
+              svgName="Fast Forward" 
+            />
         </div>
       }
     </>
